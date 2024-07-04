@@ -50,6 +50,6 @@ class JwtAuthFilter(
 
     override fun shouldNotFilter(request: HttpServletRequest): Boolean {
         val path = request.requestURI
-        return path.startsWith("/auth/")
+        return path.startsWith("/auth/") || path.startsWith("/images/")
     }
 }
