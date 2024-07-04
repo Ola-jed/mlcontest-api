@@ -7,7 +7,9 @@ import io.swagger.v3.oas.models.OpenAPI
 import io.swagger.v3.oas.models.security.SecurityRequirement
 import io.swagger.v3.oas.models.security.SecurityScheme
 import org.springframework.context.annotation.Bean
+import org.springframework.context.annotation.Configuration
 
+@Configuration
 @OpenAPIDefinition(info = Info(title = "ML contest API", description = "Web Api for the ML contest platform"))
 class SwaggerConfig {
     @Bean

@@ -30,4 +30,4 @@ build/
 !**/src/test/**/build/
 
 .vscode/
-secret.properties
+**/secret.properties
