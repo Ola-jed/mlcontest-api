@@ -15,5 +15,6 @@ class User(
     var email: String,
     var password: String,
     var photoUrl: String? = null,
+    var photoPublicId: String? = null,
     var registrationDate: Date
 )
