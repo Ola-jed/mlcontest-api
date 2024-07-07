@@ -13,7 +13,8 @@ class Dataset(
     var fileSize: Long,
     var fileUrl: String,
     var fileId: String,
-    var itemCount: String
+    var itemCount: String,
+    var public: Boolean
 ) {
     enum class FileType {
         CSV,

@@ -12,7 +12,6 @@ class Model(
     @Column(name = "id", nullable = false)
     var id: Long? = null,
     var name: String,
-    @Column(columnDefinition = "TEXT")
     var description: String,
     var imageUrl: String? = null,
     var imagePublicId: String? = null,
@@ -32,6 +31,8 @@ class Model(
     var categories: MutableList<Category> = mutableListOf(),
     @OneToMany(fetch = FetchType.LAZY)
     var datasets: MutableList<Dataset> = mutableListOf(),
+    @OneToMany(fetch = FetchType.EAGER)
+    var columnDescriptions: MutableList<ColumnDescription> = mutableListOf(),
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     var createdAt: LocalDateTime? = null,
