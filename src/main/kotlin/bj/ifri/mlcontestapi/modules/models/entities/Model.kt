@@ -29,11 +29,13 @@ class Model(
         inverseJoinColumns = [JoinColumn(name = "category_id", referencedColumnName = "id")]
     )
     var categories: MutableList<Category> = mutableListOf(),
-    @OneToMany(fetch = FetchType.LAZY)
+    @OneToMany(fetch = FetchType.EAGER, cascade = [CascadeType.ALL])
     var datasets: MutableList<Dataset> = mutableListOf(),
-    @OneToMany(fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, cascade = [CascadeType.ALL])
     var columnDescriptions: MutableList<ColumnDescription> = mutableListOf(),
     @CreationTimestamp
     @Column(nullable = false, updatable = false)
     var createdAt: LocalDateTime? = null,
+    @Column(nullable = false)
+    var createdBy: Long
 )

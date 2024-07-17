@@ -33,7 +33,8 @@ class SecurityConfig(
     fun securityFilterChain(http: HttpSecurity): SecurityFilterChain = http
         .csrf { it.disable() }
         .authorizeHttpRequests {
-            it.requestMatchers("/auth/**", "swagger-ui/**", "v3/api-docs/**", "images/**").permitAll()
+            it.requestMatchers("/auth/**", "swagger-ui/**", "v3/api-docs/**", "datasets/**", "/tags/**", "/categories/**")
+                .permitAll()
                 .requestMatchers("/**").authenticated()
         }
         .sessionManagement { it.sessionCreationPolicy(SessionCreationPolicy.STATELESS) }
