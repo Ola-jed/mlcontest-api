@@ -9,8 +9,8 @@ data class DatasetCreateDto(
     val fileType: FileType,
     @field:NotNull(message = "Item count required")
     val itemCount: Int,
-    @field:NotNull(message = "Public flag required")
-    val public: Boolean,
+    @field:NotNull(message = "Training flag required")
+    val training: Boolean,
     @field:NotNull(message = "The file is required")
     val file: MultipartFile
 )

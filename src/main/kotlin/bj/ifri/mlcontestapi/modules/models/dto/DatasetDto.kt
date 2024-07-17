@@ -9,6 +9,7 @@ class DatasetDto(
     var fileSize: Long,
     var fileUrl: String,
     var itemCount: Int,
+    var training: Boolean
 ) {
     companion object {
         fun fromDataset(dataset: Dataset): DatasetDto = DatasetDto(
@@ -16,7 +17,8 @@ class DatasetDto(
             dataset.fileType,
             dataset.fileSize,
             dataset.fileUrl,
-            dataset.itemCount
+            dataset.itemCount,
+            dataset.training
         )
     }
 }

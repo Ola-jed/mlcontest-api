@@ -14,7 +14,7 @@ class Dataset(
     var fileUrl: String,
     var fileId: String,
     var itemCount: Int,
-    var public: Boolean
+    var training: Boolean
 ) {
     enum class FileType {
         CSV,

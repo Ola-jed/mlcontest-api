@@ -147,7 +147,7 @@ class ModelService(
             fileUrl = datasetPathAndSize.first,
             fileId = datasetPathAndSize.first,
             itemCount = datasetCreateDto.itemCount,
-            public = datasetCreateDto.public
+            training = datasetCreateDto.training
         )
 
         model.datasets.add(dataset)
