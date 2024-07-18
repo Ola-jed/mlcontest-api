@@ -2,6 +2,7 @@ package bj.ifri.mlcontestapi.modules.models.controllers
 
 import bj.ifri.mlcontestapi.modules.models.dto.*
 import bj.ifri.mlcontestapi.modules.models.services.ModelService
+import jakarta.validation.Valid
 import org.springframework.data.domain.Page
 import org.springframework.http.MediaType
 import org.springframework.http.ResponseEntity
@@ -12,7 +13,7 @@ import java.security.Principal
 @RequestMapping("/models")
 class ModelsController(private val modelService: ModelService) {
     @GetMapping
-    fun list(modelFilterDto: ModelFilterDto): Page<ModelDto> {
+    fun list(@Valid modelFilterDto: ModelFilterDto): Page<ModelDto> {
         return modelService.list(modelFilterDto)
     }
 

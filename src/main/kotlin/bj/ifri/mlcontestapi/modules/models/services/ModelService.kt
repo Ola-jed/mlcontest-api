@@ -64,7 +64,7 @@ class ModelService(
     }
 
     fun updateModelImage(id: Long, modelImageDto: ModelImageDto, principal: Principal): ModelDto {
-        val model = modelRepository.findById(id).orElse(null) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+        val model = modelRepository.findById(id).orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND) }
         val currentUser = getCurrentUser(principal)
 
         if (model.createdBy != currentUser.id) {
@@ -82,7 +82,7 @@ class ModelService(
     }
 
     fun patchModel(id: Long, modelPatchDto: ModelPatchDto, principal: Principal): ModelDto {
-        val model = modelRepository.findById(id).orElse(null) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+        val model = modelRepository.findById(id).orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND) }
         val currentUser = getCurrentUser(principal)
 
         if (model.createdBy != currentUser.id) {
@@ -123,7 +123,7 @@ class ModelService(
     }
 
     fun deleteModel(id: Long, principal: Principal) {
-        val model = modelRepository.findById(id).orElse(null) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+        val model = modelRepository.findById(id).orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND) }
         val currentUser = getCurrentUser(principal)
 
         if (model.createdBy != currentUser.id) {
@@ -134,7 +134,7 @@ class ModelService(
     }
 
     fun createDataset(id: Long, datasetCreateDto: DatasetCreateDto, principal: Principal): ModelDto {
-        val model = modelRepository.findById(id).orElse(null) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+        val model = modelRepository.findById(id).orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND) }
         val currentUser = getCurrentUser(principal)
         if (model.createdBy != currentUser.id) {
             throw ResponseStatusException(HttpStatus.FORBIDDEN)
@@ -155,7 +155,7 @@ class ModelService(
     }
 
     fun deleteDataset(modelId: Long, datasetId: Long, principal: Principal) {
-        val model = modelRepository.findById(modelId).orElse(null) ?: throw ResponseStatusException(HttpStatus.NOT_FOUND)
+        val model = modelRepository.findById(modelId).orElseThrow { ResponseStatusException(HttpStatus.NOT_FOUND) }
         val currentUser = getCurrentUser(principal)
         if (model.createdBy != currentUser.id) {
             throw ResponseStatusException(HttpStatus.FORBIDDEN)
