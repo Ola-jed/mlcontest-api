@@ -4,7 +4,6 @@ WORKDIR /app
 
 COPY .mvn/ .mvn
 COPY mvnw pom.xml ./
-COPY secret.properties ./
 RUN ./mvnw dependency:go-offline
 
 COPY src ./src
