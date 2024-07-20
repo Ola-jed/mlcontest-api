@@ -9,10 +9,10 @@
 ```bash
 git clone https://github.com/Ola-jed/mlcontest-api
 cd mlcontest-api
-cp example.secret.properties secret.properties
+
+# Define the environment variables such as expected in the application.properties
 
 # Create the database in postgres
-# Change the configuration values according to your environment
 
 # Run using docker : host-mode
 docker build -t mlcontest-api .
